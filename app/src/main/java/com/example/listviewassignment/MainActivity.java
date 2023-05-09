@@ -1,16 +1,27 @@
 package com.example.listviewassignment;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private TextView titleText;
     private Button listViewBtn, listViewWithPictureBtn, gridViewBtn;
-
+    String listItems[] = {
+            "First List Item",
+            "Second List Item",
+            "Third List Item",
+            "Fourth List Item",
+            "Fifth List Item",
+            "Sixth List Item",
+    };
+    ArrayAdapter<String> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 ListViewDialog listViewDialog = new ListViewDialog(MainActivity.this);
                 listViewDialog.setCancelable(false);
                 listViewDialog.show();
+
             }
         });
     }
