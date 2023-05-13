@@ -19,9 +19,13 @@ public class ListAdapter extends ArrayAdapter<ListData> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.activity_list_view_dialog,parent,false);
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_image_list_view_dialog, parent, false);
+        }
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.activity_image_list_view_dialog, parent, false);
         ListData getDataPosition = getItem(position);
 
+        // !!LOGCAT shows error in line 29!!
         return super.getView(position, convertView, parent);
     }
 }

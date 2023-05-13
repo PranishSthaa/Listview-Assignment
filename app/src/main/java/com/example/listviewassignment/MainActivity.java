@@ -40,5 +40,23 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        listViewWithPictureBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ImageListViewDialog imageListViewDialog = new ImageListViewDialog(MainActivity.this);
+                imageListViewDialog.setCancelable(false);
+                imageListViewDialog.show();
+            }
+        });
+
+        gridViewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GridViewDialog gridViewDialog = new GridViewDialog(MainActivity.this);
+                gridViewDialog.setCancelable(false);
+                gridViewDialog.show();
+            }
+        });
     }
 }
