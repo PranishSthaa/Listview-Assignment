@@ -1,7 +1,6 @@
 package com.example.listviewassignment;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -9,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -23,12 +21,6 @@ public class ImageListViewDialog extends Dialog {
 
     public ImageListViewDialog(@NonNull Context context) {
         super(context);
-
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_list_view_dialog);
         title = findViewById(R.id.titleImageListViewDialog);
         listView = findViewById(R.id.imageListView);
@@ -40,9 +32,8 @@ public class ImageListViewDialog extends Dialog {
         imgList.add(new ListData(R.drawable.img4, "Scene 4"));
         imgList.add(new ListData(R.drawable.img5, "Scene 5"));
 
-        listAdapter = new ListAdapter(getContext(), imgList);
+        listAdapter = new ListAdapter(context, imgList);
         listView.setAdapter(listAdapter);
-
 
         btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,5 +41,6 @@ public class ImageListViewDialog extends Dialog {
                 dismiss();
             }
         });
+
     }
 }

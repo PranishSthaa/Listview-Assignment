@@ -13,19 +13,15 @@ import android.widget.GridView;
 
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class GridViewDialog extends Dialog {
+    private GridImageAdapter gridImageAdapter;
     private TextView title;
     private GridView gridView;
     private Button btnOK;
 
-    String gridItems[] = {
-            "First Grid Item",
-            "Second Grid Item",
-            "Third Grid Item",
-            "Fourth Grid Item",
-            "Fifth Grid Item",
-            "Sixth Grid Item",
-    };
+    ArrayList<ListData> imgList = new ArrayList<ListData>();
 
     public GridViewDialog(@NonNull Context context) {
         super(context);
@@ -34,15 +30,21 @@ public class GridViewDialog extends Dialog {
         gridView = findViewById(R.id.gridView);
         btnOK = findViewById(R.id.btnDialogOK);
 
+        imgList.add(new ListData(R.drawable.img1, "Scene 1"));
+        imgList.add(new ListData(R.drawable.img2, "Scene 2"));
+        imgList.add(new ListData(R.drawable.img3, "Scene 3"));
+        imgList.add(new ListData(R.drawable.img4, "Scene 4"));
+        imgList.add(new ListData(R.drawable.img5, "Scene 5"));
+
+        gridImageAdapter = new GridImageAdapter(context, imgList);
+        gridView.setAdapter(gridImageAdapter);
+
         btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dismiss();
             }
         });
-
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, gridItems);
-        gridView.setAdapter(arrayAdapter);
 
     }
 }
